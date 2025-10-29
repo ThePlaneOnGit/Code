@@ -10,7 +10,7 @@ app.secret_key = "supersecretkey"
 # Example questions
 QUESTIONS = [
         Question("/static/images/1.png", "What Did the Child Do Wrong?", ["Throw the Trash in the Bin", "Put the Trash in His Pocket", "Put the Trash on the Ground"], "Put the Trash on the Ground"),
-    Question("https://example.com", "What color is the sky?", ["Blue", "Green", "Red"], "Blue"),
+    Question("/static/images/2.png", "What did the child do wrong", ["Leave the faucet on while entering", "Leave the faucet on while leaving", "Use the faucet"], "Blue"),
 ]
 
 @app.route('/')
