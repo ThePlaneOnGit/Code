@@ -1,0 +1,27 @@
+body {
+    background-color: #f7e8ff;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    color: #333;
+    text-align: center;
+}
+.container {
+    background: white;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    width: 60%;
+}
+input, button {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid #ff69b4;
+}
+button {
+    background-color: #ffe066;
+    cursor: pointer;
+}
+a {
+    color: #1e90ff;
+}

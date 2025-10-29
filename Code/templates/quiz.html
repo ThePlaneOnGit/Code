@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz - Right or Wrong</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="video">
+	<iframe width='215' height='215' src="{{ q.video_link }}"></iframe>
+</div>
+
+<div class="container">
+    <h2>Question {{ index }} of {{ total }}</h2>
+    <p>{{ q.question_text }}</p>
+    <form id="quiz-form" method="post">
+        {% for choice in q.answer_choices %}
+        <label><input type="radio" name="choice" value="{{ choice }}" required> {{ choice }}</label><br>
+        {% endfor %}
+        <button type="submit">Submit</button>
+    </form>
+
+    <br>
+    
+    <a href="{{ url_for('logout') }}">Logout</a>
+</div>
+
+<!-- Add sound elements -->
+<audio id="correct-sound" src="{{ url_for('static', filename='sounds/correct.mp3') }}"></audio>
+<audio id="incorrect-sound" src="{{ url_for('static', filename='sounds/incorrect.mp3') }}"></audio>
+
+<script>
+const form = document.getElementById("quiz-form");
+
+form.addEventListener("submit", function(event) {
+    const selected = document.querySelector('input[name="choice"]:checked');
+    if (!selected) return;
+
+    // Play sound locally based on user's choice
+    const correctAnswer = "{{ q.correct_answer }}";
+    if (selected.value === correctAnswer) {
+        document.getElementById("correct-sound").play();
+    } else {
+        document.getElementById("incorrect-sound").play();
+    }
+});
+</script>
+
+</body>
+</html>
+
